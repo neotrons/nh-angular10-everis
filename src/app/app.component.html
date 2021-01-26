@@ -1,3 +1,45 @@
 <router-outlet></router-outlet>
 
 <app-hello></app-hello>
+
+<h2>Ejemplos prácticos sobre data binding</h2>
+
+<div id="practiceInterpolation">
+  <p class="row-{{ 1 + 1 }}">
+  {{ 'Mostrando el valor de una variable del componente con Interpolation' }} para el proyecto <b>{{ title }}</b>
+  </p>
+
+  <p>
+    <img src="{{ imageUrl }}"> imagen con Interpolation.
+  </p>
+</div>
+
+<div id="practicePropertyBinding" [class]="classes">
+  <p>
+    <img [src]="imageUrl"> imagen desde Property binding.
+  </p>
+  <p>
+    <button [disabled]="isUnchanged"> Property binding </button>
+  </p>
+</div>
+
+
+<div id="practiceEventBinding">
+  <p>
+    <button (click)="changeTitle()">Cambiar titulo</button>
+  </p>
+
+  <p>
+    <img [src]="imageUrl" [style.display]="displayNone">
+    <button (click)="hideImage()">{{ buttonTitle }}</button>
+  </p>
+</div>
+
+<div id="practiceTwoWayBinding">
+  <p>
+    <input type="text" [(ngModel)]="title">
+  </p>
+  <p>
+    ejemplo de como funciona el Two-Way-Binding -> {{ title }}
+  </p>
+</div>
