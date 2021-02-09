@@ -1,0 +1,38 @@
+<form [formGroup]="bookForm" (ngSubmit)="onsubmit()">
+  <label>Name</label>
+  <input type="text" formControlName="name">
+  <app-form-message-error [control]="f.name"></app-form-message-error>
+  <br />
+  <label>ISBN</label>
+  <input type="number" formControlName="isbn">
+  <app-form-message-error [control]="f.isbn"></app-form-message-error>
+  <br />
+  <label>Cargar Imagen</label>
+  <input type="file" (change)="onChangeFile($event)">
+  <br >
+  <label>Lenguage</label>
+  <input type="text" formControlName="language">
+  <app-form-message-error [control]="f.language"></app-form-message-error>
+  <br />
+  <label>Fecha de publicado</label>
+  <input type="date" formControlName="publishedDate">
+  <app-form-message-error [control]="f.publishedDate"></app-form-message-error>
+  <br />
+  <label>Publicado por</label>
+  <input type="text" formControlName="publisher">
+  <app-form-message-error [control]="f.publisher"></app-form-message-error>
+  <br />
+  <label>Nro de paginas</label>
+  <input type="number" formControlName="numberPages">
+  <app-form-message-error [control]="f.numberPages"></app-form-message-error>
+  <br />
+  <label>Licencia</label>
+  <input type="text" formControlName="license">
+  <app-form-message-error [control]="f.license"></app-form-message-error>
+  <br />
+  <label>summary</label>
+  <textarea formControlName="summary"></textarea>
+  <app-form-message-error [control]="f.summary"></app-form-message-error>
+  <br />
+  <button type="submit">Guardar</button>
+</form>

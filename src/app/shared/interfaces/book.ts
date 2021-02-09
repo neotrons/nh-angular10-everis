@@ -4,11 +4,12 @@ export interface Book {
   id: number;
   name: string;
   isbn: string;
-  image: string;
+  image: string | File;
   language: languageCode;
   publishedDate: string | Date;
   publisher: string;
   numberPages?: number;
   summary: string;
-  featured: boolean;
+  featured?: boolean;
+  license?: string;
 }
