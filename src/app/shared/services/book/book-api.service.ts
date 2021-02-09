@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Book } from '../../interfaces/book';
 import { environment } from 'src/environments/environment';
 import { BookService } from './book.service';
@@ -11,10 +11,11 @@ import { BookService } from './book.service';
 export class BookApiService extends BookService {
 
   apiUrl: string = environment.apiUrl;
-  constructor(
-    private http: HttpClient
-  ) { 
+  private http: HttpClient
+
+  constructor(handler: HttpBackend) { 
     super();
+    this.http = new HttpClient(handler);
   }
 
   getBooks(): Observable<Book[]> {
