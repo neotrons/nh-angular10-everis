@@ -19,6 +19,10 @@ export class BookAuthApiService {
     return this.http.get<Book[]>(`${this.apiUrl}/book/`);
   }
 
+  getBook(bookId: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/book/${bookId}/`);
+  }
+
   getBooksHarcodeToken(): Observable<Book[]> {
     const extraHeaders = new HttpHeaders({
       Authorization: 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjEyNTc2NTczLCJlbWFpbCI6ImpjcmFtaXJlenRlbGxvQGdtYWlsLmNvbSIsIm9yaWdfaWF0IjoxNjEyNTcyOTczfQ.fwXLVK-3r_4yPcOAKeDkpzAvi1CqeVJ2Szj1ZATmD7k'

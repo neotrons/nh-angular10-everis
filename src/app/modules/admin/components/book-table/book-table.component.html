@@ -1,4 +1,4 @@
-<p-panel>
+<p-panel *ngIf="books">
   <p-header>
     <button pButton class="p-button-success" icon="pi pi-plus" label="Agregar" [routerLink]="'add'"></button>
   </p-header>
@@ -29,7 +29,8 @@
             <td>{{book.name}}</td>
             <td>{{book.publisher}}</td>
             <td>
-              <button pButton type="button" icon="pi pi-pencil" iconPos="left" label="editar"></button>
+              <button pButton type="button" icon="pi pi-pencil" iconPos="left" label="editar"
+              [routerLink]="['edit', book.id]"></button>
               <button pButton class="p-button-danger" type="button" icon="pi pi-times" iconPos="left" label="editar"></button>
             </td>
         </tr>

@@ -11,10 +11,11 @@ import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
 import { BookTableComponent } from './components/book-table/book-table.component';
 import { BookCreateEditFormComponent } from './components/book-create-edit-form/book-create-edit-form.component';
+import { BookEditPageComponent } from './pages/book-edit-page/book-edit-page.component';
 
 
 @NgModule({
-  declarations: [BookListPageComponent, BookCreatePageComponent, BookTableComponent, BookCreateEditFormComponent],
+  declarations: [BookListPageComponent, BookCreatePageComponent, BookTableComponent, BookCreateEditFormComponent, BookEditPageComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
