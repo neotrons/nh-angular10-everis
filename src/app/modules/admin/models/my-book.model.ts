@@ -1,5 +1,5 @@
 import { languageCode } from 'src/app/shared/types';
-
+import { formatDate } from '@angular/common';
 
 export class MyBook {
   id: number;
@@ -24,7 +24,11 @@ export class MyBook {
   }
 
   isNew(): boolean {
-    return this.id ? true : false;
+    return this.id ? false : true;
+  }
+
+  publishedDateFormat() {
+    return formatDate(this.publishedDate, 'yyyy-MM-dd', 'en')
   }
 
   deserialize(data: any): MyBook {

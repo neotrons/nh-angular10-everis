@@ -64,9 +64,19 @@ export class BookCreateEditFormComponent implements OnInit {
 
   onsubmit() {
     if(this.bookForm.valid) {
-      const bookData: Book = this.bookForm.value;
-      this.bookService.createBook(bookData).subscribe(
-        book => console.log("Libro creado correctamente", book)
+      this.book.deserialize(this.bookForm.value);
+      this.save();  
+    }
+  }
+
+  private save() {
+    if(this.book.isNew()) {
+      this.bookService.createBook(this.book).subscribe(
+        book => console.log("Libro creado correctamente")
+      )
+    }else {
+      this.bookService.editBook(this.book).subscribe(
+        book => console.log("Libro editado correctamente")
       )
     }
   }

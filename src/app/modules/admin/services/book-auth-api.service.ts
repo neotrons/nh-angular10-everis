@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from 'src/app/shared/interfaces/book';
-import { formatDate } from '@angular/common';
+import { MyBook } from '../models/my-book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,22 +33,37 @@ export class BookAuthApiService {
     });
   }
 
-  createBook(bookData: Book): Observable<Book> {
-    const bookFormData = this.createFormData(bookData);
-    return this.http.post<Book>(`${this.apiUrl}/book/`, bookFormData);
+  createBook(book: MyBook): Observable<MyBook> {
+    const bookFormData = this.createFormData(book);
+    return this.http.post<MyBook>(`${this.apiUrl}/book/`, bookFormData).pipe(
+      map( res => new MyBook().deserialize(res) )
+    );
   }
 
-  private createFormData(book: Book) {
+  editBook(book: MyBook): Observable<MyBook> {
+    const bookFormData = this.createFormData(book);
+    return this.http.patch<MyBook>(`${this.apiUrl}/book/${book.id}/`, bookFormData).pipe(
+      map(res => new MyBook().deserialize(res))
+    )
+  }
+
+  private createFormData(book: MyBook) {
     const formData = new FormData();
     formData.append('name', book.name);
     formData.append('isbn', book.isbn);
-    formData.append('image', book.image, book.image['name']);
+    if (book.image) {
+      formData.append('image', book.image, book.image.name);
+    }
     formData.append('language', book.language);
-    formData.append('publishedDate', formatDate(book.publishedDate, 'yyyy-MM-dd', 'en'));
+    formData.append('publishedDate', book.publishedDateFormat());
     formData.append('publisher', book.publisher);
     formData.append('numberPages', String(book.numberPages));
     formData.append('license', book?.license);
     formData.append('summary', book.summary);
     return formData;
+  }
+
+  deleteBook(bookId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/book/${bookId}/`);
   }
 }
