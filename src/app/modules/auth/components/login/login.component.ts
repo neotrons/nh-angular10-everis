@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login({username, password}).subscribe(
         session => {
           this.storage.setToken(session.token);
-          this.router.navigate([this.loginRedirect]);
+          // this.router.navigate([this.loginRedirect]);
         }
       );
     }
