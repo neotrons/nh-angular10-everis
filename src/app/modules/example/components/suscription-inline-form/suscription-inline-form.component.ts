@@ -15,7 +15,7 @@ export class SuscriptionInlineFormComponent implements OnInit {
     this.initForm();
     this.email.valueChanges.subscribe(
       value => console.log(value)
-    )
+    );
   }
 
   initForm(): void {
@@ -26,10 +26,10 @@ export class SuscriptionInlineFormComponent implements OnInit {
         Validators.email,
         Validators.pattern(/^[a-z0-9]+@nh\.com\.pe$/)
       ]
-    )
+    );
   }
 
-  suscribeUser() {
+  suscribeUser(): void {
     console.log(this.email.valid);
     console.log(this.email.errors);
   }

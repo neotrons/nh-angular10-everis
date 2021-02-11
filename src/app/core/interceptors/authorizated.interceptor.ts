@@ -31,7 +31,7 @@ export class AuthorizatedInterceptor implements HttpInterceptor {
     // modificando el response de una peticion http
     const response = next.handle(newRequest).pipe(
       // tap(res => console.log(`response observable interceptor`, res))
-      tap( 
+      tap(
         () => {},
         error => {
           if (error.status === 401) {
@@ -39,8 +39,8 @@ export class AuthorizatedInterceptor implements HttpInterceptor {
           }
         }
       )
-    )
-    
+    );
+
     return response;
   }
 

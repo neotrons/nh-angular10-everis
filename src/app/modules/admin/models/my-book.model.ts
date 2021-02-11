@@ -17,7 +17,7 @@ export class MyBook {
 
   constructor() {}
 
-  setImageUrl(image: any) {
+  setImageUrl(image: any): void {
     if (typeof image === 'string') {
       this.imageUrl = image;
     }
@@ -27,8 +27,8 @@ export class MyBook {
     return this.id ? false : true;
   }
 
-  publishedDateFormat() {
-    return formatDate(this.publishedDate, 'yyyy-MM-dd', 'en')
+  publishedDateFormat(): string {
+    return formatDate(this.publishedDate, 'yyyy-MM-dd', 'en');
   }
 
   deserialize(data: any): MyBook {

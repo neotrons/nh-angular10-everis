@@ -19,10 +19,10 @@ export class BookDetailComponent implements OnInit {
     this.fetchBook();
   }
 
-  fetchBook() {
+  fetchBook(): void {
     this.bookService.getBook(this.bookId).subscribe(
       book => this.book = book
-    )
+    );
   }
 
 }

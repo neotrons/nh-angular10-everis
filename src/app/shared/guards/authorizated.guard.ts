@@ -25,5 +25,5 @@ export class AuthorizatedGuard implements CanActivate {
     this.router.navigate([this.loginUrl]);
     return false;
   }
-  
+
 }

@@ -8,11 +8,11 @@ export class StorageAuthService {
   storageKey = 'sessionToken';
   constructor() { }
 
-  setToken(token: string) {
+  setToken(token: string): void {
     localStorage.setItem(this.storageKey, token);
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.storageKey)
+    return localStorage.getItem(this.storageKey);
   }
 }

@@ -19,17 +19,17 @@ export class SuscribeFormComponent implements OnInit {
     this.initForm();
   }
 
-  initForm() {
+  initForm(): void {
     this.suscribeForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]]
-    })
+    });
   }
 
   get email(): AbstractControl {
-    return this.suscribeForm.get('email')
+    return this.suscribeForm.get('email');
   }
 
-  toSuscribe(suscribeForm) {
+  toSuscribe(suscribeForm): void {
     if (suscribeForm.valid) {
       this.suscribeService.save(suscribeForm.get('email').value);
     }

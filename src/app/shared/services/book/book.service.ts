@@ -17,7 +17,7 @@ export class BookService implements IBookService {
   getFeaturedBooks(): Observable<Book[]> {
     return;
   }
-  
+
   getBook(id: number): Observable<Book> {
     return;
   }

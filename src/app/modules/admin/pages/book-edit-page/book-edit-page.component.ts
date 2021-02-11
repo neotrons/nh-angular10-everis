@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from  '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-book-edit-page',
@@ -16,10 +16,10 @@ export class BookEditPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => this.setBookId(params)
-    )
+    );
   }
 
-  setBookId(params: Params) {
+  setBookId(params: Params): void {
     this.bookId = Number(params.id);
   }
 

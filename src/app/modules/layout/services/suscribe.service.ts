@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SuscribeService {
-  save(email: string) {
+  save(email: string): void {
     console.log(`email ingresado correcto: ${email}`);
   }
 }

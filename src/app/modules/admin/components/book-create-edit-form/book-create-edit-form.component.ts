@@ -13,12 +13,12 @@ export class BookCreateEditFormComponent implements OnInit {
 
   @Input() bookId: number;
   bookForm: FormGroup;
-  book: MyBook; 
+  book: MyBook;
 
   constructor(
     private fb: FormBuilder,
     private bookService: BookAuthApiService
-  ) { 
+  ) {
     this.book = new MyBook();
   }
 
@@ -26,14 +26,14 @@ export class BookCreateEditFormComponent implements OnInit {
     this.createOrEditForm();
   }
 
-  createOrEditForm() {
+  createOrEditForm(): void {
     if (this.bookId) {
       this.bookService.getBook(this.bookId).subscribe(
         book => {
           this.book.deserialize(book);
           this.initForm();
         }
-      )
+      );
     }else {
       this.initForm();
     }
@@ -58,30 +58,30 @@ export class BookCreateEditFormComponent implements OnInit {
     });
   }
 
-  get f() {
+  get f(): any {
     return this.bookForm.controls;
   }
 
-  onsubmit() {
-    if(this.bookForm.valid) {
+  onsubmit(): void {
+    if (this.bookForm.valid) {
       this.book.deserialize(this.bookForm.value);
-      this.save();  
+      this.save();
     }
   }
 
-  private save() {
-    if(this.book.isNew()) {
+  private save(): void {
+    if (this.book.isNew()) {
       this.bookService.createBook(this.book).subscribe(
-        book => console.log("Libro creado correctamente")
-      )
+        book => console.log('Libro creado correctamente')
+      );
     }else {
       this.bookService.editBook(this.book).subscribe(
-        book => console.log("Libro editado correctamente")
-      )
+        book => console.log('Libro editado correctamente')
+      );
     }
   }
 
-  onChangeFile(event) {
+  onChangeFile(event): void {
     const image: File = event.target.files[0];
     this.bookForm.get('image').setValue(image);
     this.imagePeview(image);

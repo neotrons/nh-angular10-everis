@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'forms',
     component: TemplateFormPageComponent
   }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)]

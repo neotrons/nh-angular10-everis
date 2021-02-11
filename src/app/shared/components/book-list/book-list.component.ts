@@ -9,8 +9,8 @@ import { BookService } from '../../services/book/book.service';
 })
 export class BookListComponent implements OnInit {
 
-  @Input() isFeatured: boolean = false;
-  @Input() showBooks: number = 4;
+  @Input() isFeatured = false;
+  @Input() showBooks = 4;
   books: Book[];
   classShowBook: number;
   constructor(
@@ -26,11 +26,11 @@ export class BookListComponent implements OnInit {
     if (this.isFeatured) {
       this.bookService.getFeaturedBooks().subscribe(
         books => this.books = books
-      )
+      );
     }else {
       this.bookService.getBooks().subscribe(
         books => this.books = books
-      )
+      );
     }
   }
 

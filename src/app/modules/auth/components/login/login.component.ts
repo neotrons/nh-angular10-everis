@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginRedirect: string = environment.loginRedirect;
   constructor(
-    private router: Router, 
+    private router: Router,
     private fb: FormBuilder,
     private loginService: LoginService,
     private storage: StorageAuthService,
@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       username: [null, Validators.required],
       password: [null, Validators.required]
-    })
+    });
   }
 
-  get f() {
+  get f(): any {
     return this.loginForm.controls;
   }
 
-  onsubmit() {
+  onsubmit(): void {
     if (this.loginForm.valid) {
       const username = this.loginForm.get('username').value;
       const password = this.loginForm.get('password').value;
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           this.storage.setToken(session.token);
           this.router.navigate([this.loginRedirect]);
         }
-      )
+      );
     }
   }
 }

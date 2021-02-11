@@ -9,7 +9,7 @@ import { BookService } from './book.service';
 })
 export class BookMockService extends BookService {
 
-  constructor() { 
+  constructor() {
     super();
   }
 
@@ -28,10 +28,10 @@ export class BookMockService extends BookService {
       }, 10000);
     });
   }
-  
+
   getBook(id: number): Observable<Book> {
     return new Observable(observer => {
-      const book: Book = booksMock.find(book => book.id === id);
+      const book: Book = booksMock.find(book => book.id === id); // tslint:disable-line
       observer.next(book);
     });
   }

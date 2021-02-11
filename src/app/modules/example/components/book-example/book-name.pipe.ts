@@ -6,6 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CustomNamePipe implements PipeTransform {
   transform(value: string): string {
     const newValue = `<< ${value} >>`;
-    return newValue
+    return newValue;
   }
 }

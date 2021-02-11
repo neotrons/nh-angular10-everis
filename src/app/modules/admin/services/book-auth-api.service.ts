@@ -27,7 +27,7 @@ export class BookAuthApiService {
   getBooksHarcodeToken(): Observable<Book[]> {
     const extraHeaders = new HttpHeaders({
       Authorization: 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjEyNTc2NTczLCJlbWFpbCI6ImpjcmFtaXJlenRlbGxvQGdtYWlsLmNvbSIsIm9yaWdfaWF0IjoxNjEyNTcyOTczfQ.fwXLVK-3r_4yPcOAKeDkpzAvi1CqeVJ2Szj1ZATmD7k'
-    })
+    });
     return this.http.get<Book[]>(`${this.apiUrl}/book/`, {
       headers: extraHeaders
     });
@@ -44,10 +44,10 @@ export class BookAuthApiService {
     const bookFormData = this.createFormData(book);
     return this.http.patch<MyBook>(`${this.apiUrl}/book/${book.id}/`, bookFormData).pipe(
       map(res => new MyBook().deserialize(res))
-    )
+    );
   }
 
-  private createFormData(book: MyBook) {
+  private createFormData(book: MyBook): FormData {
     const formData = new FormData();
     formData.append('name', book.name);
     formData.append('isbn', book.isbn);

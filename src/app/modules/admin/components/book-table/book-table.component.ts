@@ -7,11 +7,11 @@ import { ConfirmationService } from 'primeng/api';
   selector: 'app-book-table',
   templateUrl: './book-table.component.html',
   styleUrls: ['./book-table.component.scss'],
-  providers: [ConfirmationService,]
+  providers: [ConfirmationService, ]
 })
 export class BookTableComponent implements OnInit {
 
-  books: Book[]; 
+  books: Book[];
   constructor(
     private bookService: BookAuthApiService,
     private confirmationService: ConfirmationService
@@ -24,16 +24,16 @@ export class BookTableComponent implements OnInit {
   fetchBooks(): void {
     this.bookService.getBooks().subscribe(
       books => this.books = books
-    )
+    );
   }
 
-  deleteConfirm(book: Book) {
+  deleteConfirm(book: Book): void {
     this.confirmationService.confirm({
       message: `Esta seguro que desea eliminar el libro ${book.name}`,
       accept: () => {
         this.bookService.deleteBook(book.id).subscribe(
-          res => console.log("Libro eliminado")
-        )
+          res => console.log('Libro eliminado')
+        );
       }
     });
   }

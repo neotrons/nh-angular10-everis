@@ -18,7 +18,7 @@ export class BookDetailPageComponent implements OnInit {
       (params: Params) => {
         this.bookId = this.getBookId(params);
       }
-    )
+    );
   }
 
   getBookId(params: Params): number {

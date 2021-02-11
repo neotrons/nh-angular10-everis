@@ -26,10 +26,10 @@ export class SuscriptionFormComponent implements OnInit {
         zipcode: 'Lima 25',
         street: 'Jesus maria'
       }
-    )
+    );
   }
 
-  onSubmit(suscriptionForm: NgForm) {
+  onSubmit(suscriptionForm: NgForm): void {
     if (suscriptionForm.valid) {
       console.log(suscriptionForm.value);
       console.log(this.model);

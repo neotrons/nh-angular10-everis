@@ -16,36 +16,36 @@ export class ExamplePageComponent implements OnChanges, OnInit, OnDestroy {
   classes = 'aClassDemo';
   buttonTitle = 'Ocultar imagen';
   displayNone: string;
-  directives = ['ngIf', 'ngFor', 'ngSwitch', 'ng-template']
+  directives = ['ngIf', 'ngFor', 'ngSwitch', 'ng-template'];
   myClass = 'addMyclass';
   withExample = '20px';
   books = [
     {
-      "id": 1,
-      "name": "Continuous Delivery",
-      "isbn": "252621",
-      "image": "http://nh-back.jcramireztello.com/media/books/5f287f75de25badfcc4e4e34_25.jpg",
-      "language": "en",
-      "publishedDate": "2005-12-18",
-      "publisher": "Jez Humble & David Farley",
+      id: 1,
+      name: 'Continuous Delivery',
+      isbn: '252621',
+      image: 'http://nh-back.jcramireztello.com/media/books/5f287f75de25badfcc4e4e34_25.jpg',
+      language: 'en',
+      publishedDate: '2005-12-18',
+      publisher: 'Jez Humble & David Farley',
     },
     {
-      "id": 2,
-      "name": "Algorithms",
-      "isbn": "252622",
-      "image": "http://nh-back.jcramireztello.com/media/books/5f287faff2205a602fc8c376_24.jpg",
-      "language": "en",
-      "publishedDate": "2010-11-16",
-      "publisher": "Robert Sedgewick & Kevin Wayne",
+      id: 2,
+      name: 'Algorithms',
+      isbn: '252622',
+      image: 'http://nh-back.jcramireztello.com/media/books/5f287faff2205a602fc8c376_24.jpg',
+      language: 'en',
+      publishedDate: '2010-11-16',
+      publisher: 'Robert Sedgewick & Kevin Wayne',
     },
     {
-      "id": 3,
-    "name": "The Self-Taught Programmer",
-    "isbn": "252623",
-    "image": "http://nh-back.jcramireztello.com/media/books/5f288004037f6811b18d3787_23.jpg",
-    "language": "en",
-    "publishedDate": "2017-02-18",
-    "publisher": "Cory Althoff",
+      id: 3,
+    name: 'The Self-Taught Programmer',
+    isbn: '252623',
+    image: 'http://nh-back.jcramireztello.com/media/books/5f288004037f6811b18d3787_23.jpg',
+    language: 'en',
+    publishedDate: '2017-02-18',
+    publisher: 'Cory Althoff',
     }
   ];
 

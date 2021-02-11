@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 class ConsolePrintMessageService {
   constructor(private mesessage) {}
 
@@ -21,12 +23,12 @@ class Hello {
     /* De esta forma se esta acomplando a la forma de imprimir si queremos cambiar
     a otra forma de imprimir se debe cambiar la logica de la clase
     */
-    const printMessage = new HtmlPrintMessageService(message)
+    const printMessage = new HtmlPrintMessageService(message);
     printMessage.print();
   }
 }
 
-new Hello("Bienvenido")
+new Hello('Bienvenido');
 
 class HelloBest {
   constructor(
@@ -38,4 +40,4 @@ class HelloBest {
 
 
 // Al instanciar la clase nos hacemos cargo de inyectar el valor
-new HelloBest(new HtmlPrintMessageService("Bienvenido con Inyeccion de dependencia"));
+new HelloBest(new HtmlPrintMessageService('Bienvenido con Inyeccion de dependencia'));

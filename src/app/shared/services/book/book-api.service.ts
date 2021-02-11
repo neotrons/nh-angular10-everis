@@ -11,9 +11,9 @@ import { BookService } from './book.service';
 export class BookApiService extends BookService {
 
   apiUrl: string = environment.apiUrl;
-  private http: HttpClient
+  private http: HttpClient;
 
-  constructor(handler: HttpBackend) { 
+  constructor(handler: HttpBackend) {
     super();
     this.http = new HttpClient(handler);
   }

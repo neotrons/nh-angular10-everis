@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ReserveValidators } from './validators';
 
 @Component({
@@ -31,14 +31,14 @@ export class ReserveBookFormComponent implements OnInit {
       ]),
     }, [
       ReserveValidators.emailMatchValidator
-    ])
+    ]);
   }
 
-  get firstName() {
-    return this.reserveForm.get('firstName')
+  get firstName(): AbstractControl {
+    return this.reserveForm.get('firstName');
   }
 
-  get f() {
+  get f(): any {
     return this.reserveForm.controls;
   }
 }
